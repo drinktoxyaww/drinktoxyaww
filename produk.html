@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Menu - Drinktoxyaww</title>
+    <style>
+        /* --- COPY STYLE DASAR DARI INDEX AGAR KONSISTEN --- */
+        :root {
+            --primary: #00ff88;
+            --secondary: #9d00ff;
+            --dark: #121212;
+            --light: #f4f4f4;
+            --card-bg: #1e1e1e;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background-color: var(--dark); color: var(--light); line-height: 1.6; }
+
+        /* --- HEADER KHUSUS HALAMAN PRODUK --- */
+        header {
+            padding: 20px 50px;
+            background: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover { color: var(--primary); transform: translateX(-5px); }
+        .logo-small { color: var(--primary); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- CONTAINER PRODUK DETAIL --- */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+        /* Style untuk setiap Section Produk */
+        .detail-section {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 60px; /* Jarak antar produk */
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            scroll-margin-top: 100px; /* Jarak scroll agar tidak tertutup header */
+        }
+
+        /* Efek Sorotan saat produk dipilih dari Home */
+        .detail-section:target {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+            animation: pulse 1s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .detail-img {
+            flex: 1;
+            min-width: 350px;
+            height: 500px;
+            background: #222;
+        }
+
+        .detail-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .detail-content {
+            flex: 1;
+            min-width: 350px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .detail-content h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 5px;
+        }
+
+        .desc-text {
+            font-size: 1rem;
+            color: #ccc;
+            text-align: justify;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .tags {
+            margin-bottom: 30px;
+        }
+
+        .tag-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .btn-wa {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--primary);
+            color: #000;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .btn-wa:hover {
+            background: var(--secondary);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(157, 0, 255, 0.5);
+        }
+
+        /* Footer Simple */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #555;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .detail-section { flex-direction: column; }
+            .detail-img { height: 300px; }
+            .detail-content { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-small">Drinktoxyaww</div>
+        <a href="index.html" class="btn-back">← Kembali ke Home</a>
+    </header>
+
+    <div class="container">
+        
+        <article id="warmboost" class="detail-section">
+            <div class="detail-img">
+                <img src="DRINKTOX ORIGINAL WARM BOOST.jpg" alt="Original Warm Boost">
+            </div>
+            <div class="detail-content">
+                <h1>Original Warm Boost</h1>
+                <span class="price">Rp 13.000</span>
+                
+                <div class="tags">
+                    <span class="tag-badge">Jahe</span>
+                    <span class="tag-badge">Sereh</span>
+                    <span class="tag-badge">Kunyit</span>
+                </div>
+
+                <p class="desc-text">
+                    <strong>Drinktox Original Warm Boost</strong> adalah minuman rimpang alami berbahan jahe, sereh, dan kunyit yang memberikan sensasi hangat menenangkan. 
+                    <br><br>
+                    Kaya antioksidan untuk membantu meningkatkan daya tahan tubuh, mendukung detoks alami, melancarkan peredaran darah, serta meredakan ketidaknyamanan seperti masuk angin atau tenggorokan gatal.
+                    <br><br>
+                    Cocok diminum saat pagi, cuaca dingin, atau ketika tubuh membutuhkan energi dan kehangatan ekstra.
+                </p>
+
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20Warm%20Boost" class="btn-wa">Pesan Sekarang via WA</a>
+            </div>
+        </article>
+
+
+        <article id="sugarfree" class="detail-section">
+            <div class="detail-img">
+                <img src="DRINKTOX SUGAR FREE FIT.jpg" alt="Sugar Free Fit">
+            </div>
+            <div class="detail-content">
+                <h1>Sugar Free Fit</h1>
+                <span class="price">Rp 15.000</span>
+
+                <div class="tags">
+                    <span class="tag-badge">Tanpa Gula</span>
+                    <span class="tag-badge">Diet Friendly</span>
+                    <span class="tag-badge">Sehat</span>
+                </div>
+
+                <p class="desc-text">
+                    <strong>Drinktox Sugar Free Fit</strong> adalah minuman rimpang tanpa tambahan gula dengan rasa ringan dan tetap bernutrisi. 
+                    <br><br>
+                    Cocok untuk gaya hidup sehat, program diet, atau siapa pun yang mengurangi konsumsi manis. Kandungan rimpang alaminya membantu meningkatkan metabolisme, menjaga kebugaran, dan memberi energi harian tanpa beban.
+                </p>
+
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20Sugar%20Free" class="btn-wa">Pesan Sekarang via WA</a>
+            </div>
+        </article>
+
+
+        <article id="citrus" class="detail-section">
+            <div class="detail-img">
+                <img src="DRINKTOX CITRUS FRESH.jpg" alt="Citrus Fresh">
+            </div>
+            <div class="detail-content">
+                <h1>Citrus Fresh</h1>
+                <span class="price">Rp 18.000</span>
+
+                <div class="tags">
+                    <span class="tag-badge">Ekstrak Jeruk Nipis</span>
+                    <span class="tag-badge">Vitamin C</span>
+                    <span class="tag-badge">Segar</span>
+                </div>
+
+                <p class="desc-text">
+                    <strong>Drinktox Citrus Fresh</strong> memadukan rimpang herbal dengan aroma citrus yang segar, menghasilkan rasa ringan dan menyegarkan. 
+                    <br><br>
+                    Kaya vitamin C dan antioksidan untuk membantu meningkatkan imun, mendukung detoks, serta memberi revitalisasi cepat. Cocok diminum kapan saja, terutama saat cuaca panas atau ketika tubuh butuh dorongan energi dan mood yang lebih cerah.
+                </p>
+
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20Citrus%20Fresh" class="btn-wa">Pesan Sekarang via WA</a>
+            </div>
+        </article>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Drinktoxyaww - Halaman Detail Menu</p>
+    </footer>
+
+</body>
+</html>
