@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drinktoxyaww - Refresh Your Vibe</title>
+    <title>Drinktoxyaww - The Power of Rimpang</title>
     <style>
-        /* --- 1. SETUP VARIABEL & RESET --- */
+        /* --- 1. SETUP TEMA REMPAH (HERBAL PALETTE) --- */
         :root {
-            --primary: #00ff88; /* Hijau Neon */
-            --secondary: #9d00ff; /* Ungu Neon */
-            --dark: #121212;
-            --light: #f4f4f4;
-            --glass: rgba(255, 255, 255, 0.05);
+            --primary: #ffc857; /* Kuning Emas */
+            --secondary: #76b041; /* Hijau Segar */
+            --accent-warm: #ff9f1c; /* Orange Hangat */
+            --dark: #1f1b18; /* Cokelat Gelap */
+            --card-bg: #2b2420; /* Latar Kartu */
+            --light: #f4eace; /* Putih Gading */
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -23,6 +24,8 @@
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: radial-gradient(#2e2520 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
         /* --- 2. NAVIGASI --- */
@@ -34,10 +37,10 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
-            background: rgba(18, 18, 18, 0.95);
+            background: rgba(31, 27, 24, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 2px solid rgba(255, 200, 87, 0.2);
         }
 
         .logo {
@@ -46,6 +49,9 @@
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .nav-links a {
@@ -54,79 +60,116 @@
             margin-left: 30px;
             font-weight: 500;
             transition: 0.3s;
+            font-size: 0.95rem;
         }
 
-        .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+        .nav-links a:hover { color: var(--primary); border-bottom: 1px solid var(--primary); }
 
-        /* --- 3. HERO SECTION (LANDING) --- */
+        /* --- 3. HERO SECTION (UPDATED BACKGROUND) --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            padding: 0 20px;
+            
+            /* UPDATED: Menggunakan gambar jamu.jpeg dengan overlay gelap */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('jamu.jpeg');
+            
+            /* Agar gambar full cover dan tetap bagus saat di-scroll */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efek Parallax */
+            
+            padding: 100px 20px 50px;
+            position: relative;
         }
 
-        .hero-content { animation: fadeIn 1.5s ease-out; max-width: 800px; }
+        .hero-content { 
+            position: relative; 
+            z-index: 1; 
+            max-width: 800px; 
+            animation: fadeIn 1.5s ease-out; 
+            /* Border tipis agar teks lebih pop-up di atas background foto */
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.4); /* Background transparan kotak konten */
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(3px);
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            /* Warna teks dibuat Solid Putih/Emas agar terbaca jelas di atas foto */
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 200, 87, 0.5);
+            font-weight: 800;
         }
 
-        .motto { font-size: 1.5rem; margin-bottom: 40px; font-style: italic; color: #ccc; }
+        .motto { font-size: 1.3rem; margin-bottom: 30px; font-style: italic; color: #ddd; }
+        
+        /* Elemen Visual Rimpang */
+        .spice-icons { font-size: 2rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+        .spice-item { display: flex; flex-direction: column; align-items: center; font-size: 0.8rem; color: var(--primary); }
+        .spice-item span { font-size: 2rem; margin-bottom: 5px; filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); }
 
         .btn-cta {
             padding: 15px 40px;
-            background: var(--primary);
-            color: var(--dark);
+            background: linear-gradient(45deg, var(--accent-warm), var(--primary));
+            color: #1f1b18;
             text-decoration: none;
             font-weight: bold;
             border-radius: 30px;
             font-size: 1.1rem;
             transition: 0.3s;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 159, 28, 0.4);
+            display: inline-block;
         }
 
         .btn-cta:hover {
-            background: var(--secondary);
-            color: white;
-            box-shadow: 0 0 30px rgba(157, 0, 255, 0.6);
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 159, 28, 0.6);
+            color: #000;
         }
 
-        /* --- 4. WHY US (KEUNGGULAN) --- */
+        /* --- 4. WHY US --- */
         .features {
             padding: 80px 50px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
-            background: #151515;
+            background: #25201c;
+            border-top: 1px solid #333;
         }
 
         .feature-box {
-            background: var(--glass);
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 15px;
             width: 300px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 200, 87, 0.1);
             transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .feature-box:hover { transform: translateY(-10px); border-color: var(--primary); }
-        .feature-box h3 { color: var(--primary); margin-bottom: 15px; }
+        .feature-box:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--secondary); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .feature-box h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.4rem; }
+        .feature-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
 
-        /* --- 5. PRODUK PAGE (RAK PRODUK) --- */
-        .products-section { padding: 100px 50px; background: var(--dark); }
+        /* --- 5. PRODUK PAGE --- */
+        .products-section { padding: 100px 50px; background: var(--dark); position: relative; }
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--light); }
-        .section-title span { color: var(--secondary); }
+        .section-title span { color: var(--primary); border-bottom: 3px solid var(--secondary); }
 
         .product-grid {
             display: grid;
@@ -137,43 +180,46 @@
         }
 
         .product-card {
-            background: #1e1e1e;
-            border-radius: 15px;
+            background: var(--card-bg);
+            border-radius: 20px;
             overflow: hidden;
             transition: 0.4s;
             border: 1px solid rgba(255,255,255,0.05);
             display: flex;
             flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.15);
             border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(255, 200, 87, 0.15);
         }
 
-        /* Container Gambar agar Rapi */
         .product-img-container {
             width: 100%;
-            height: 350px; /* Tinggi gambar disamakan */
-            background: #2a2a2a;
+            height: 350px;
+            background: linear-gradient(to bottom, #3a3028, #2b2420);
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .product-img-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Gambar botol akan mengisi penuh kotak */
-            transition: transform 0.5s;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .product-card:hover .product-img-container img { transform: scale(1.1); }
+        .product-card:hover .product-img-container img { transform: scale(1.08); }
 
-        .product-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .product-name { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
-        .product-price { color: var(--primary); font-size: 1.4rem; font-weight: bold; margin-bottom: 15px; }
-        .product-desc-short { font-size: 0.9rem; color: #aaa; margin-bottom: 20px; flex-grow: 1; }
+        .product-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; text-align: center; }
+        .product-name { font-size: 1.4rem; margin-bottom: 5px; color: var(--primary); font-weight: 700; }
+        .product-price { color: #fff; font-size: 1.3rem; font-weight: bold; margin-bottom: 15px; }
+        .product-desc-short { font-size: 0.9rem; color: #ccc; margin-bottom: 20px; flex-grow: 1; font-style: italic;}
 
         .btn-buy {
             display: block;
@@ -182,56 +228,52 @@
             border: 2px solid var(--primary);
             color: var(--primary);
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 30px;
             font-weight: bold;
             transition: 0.3s;
         }
 
-        .btn-buy:hover { background: var(--primary); color: #000; }
+        .btn-buy:hover { background: var(--primary); color: #1f1b18; }
 
-        /* --- 6. FOOTER & SOSMED --- */
+        /* --- 6. FOOTER --- */
         .footer-section {
-            background: #0a0a0a;
+            background: #15110e;
             padding: 50px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            border-top: 1px solid #333;
+            border-top: 3px solid var(--secondary);
         }
 
         .footer-col { flex: 1; min-width: 300px; margin: 20px; }
-        .footer-col h3 { color: var(--secondary); margin-bottom: 20px; font-size: 1.5rem; }
+        .footer-col h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.5rem; }
 
         .social-links { display: flex; align-items: center; gap: 15px; }
         .social-links a {
             display: flex; align-items: center; justify-content: center;
             width: 45px; height: 45px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            color: #fff;
+            background: rgba(255,255,255,0.05);
+            color: #aaa;
             transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .social-links a svg { width: 22px; height: 22px; fill: currentColor; }
-        .social-links a:hover { transform: translateY(-5px); background: #fff; }
+        .social-links a:hover { transform: translateY(-5px); color: #fff; border-color: var(--primary); }
 
-        /* Warna Hover Spesifik */
-        .social-links a.tiktok:hover { color: #000; box-shadow: 0 0 15px rgba(255,255,255,0.5); }
-        .social-links a.fb:hover { color: #1877F2; box-shadow: 0 0 15px rgba(24, 119, 242, 0.5); }
-        .social-links a.ig:hover { color: #E1306C; box-shadow: 0 0 15px rgba(225, 48, 108, 0.5); }
-        /* Warna Hover YouTube (Merah) */
-        .social-links a.yt:hover {
-        color: #FF0000;
-        box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);}
+        /* Warna Hover */
+        .social-links a.tiktok:hover { background: #000; color: #fff; }
+        .social-links a.fb:hover { background: #1877F2; color: #fff; }
+        .social-links a.ig:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #fff; border: none;}
+        .social-links a.yt:hover { background: #FF0000; color: #fff; }
 
-        .map-container { width: 100%; height: 200px; background: #333; border-radius: 10px; overflow: hidden; }
+        .map-container { width: 100%; height: 200px; background: #333; border-radius: 10px; overflow: hidden; border: 1px solid #444; }
         
         .nib-info {
             width: 100%; text-align: center; margin-top: 40px; padding-top: 20px;
             border-top: 1px solid #333; color: #777; font-size: 0.9rem;
         }
 
-        /* Animasi Fade In */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Responsive */
@@ -243,15 +285,15 @@
     </style>
 
     <script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 
 </head>
 <body>
 
     <nav>
-        <div class="logo">Drinktoxyaww</div>
+        <div class="logo">🌿 Drinktoxyaww</div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#featured">Why Us</a>
@@ -264,22 +306,28 @@
         <div class="hero-content">
             <h1>Drinktoxyaww</h1>
             <p class="motto">"Kesegaran alami dalam setiap tegukan"</p>
-            <p style="margin-bottom: 30px;">Minuman rimpang kekinian. Sehat, Segar, dan Alami</p>
+
+            <p style="margin-bottom: 30px; color: #eee; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">
+                Minuman rimpang kekinian. Sehat, Segar, dan Alami
+            </p>
             <a href="#products" class="btn-cta">Lihat Menu</a>
         </div>
     </header>
 
     <section id="featured" class="features">
         <div class="feature-box">
-            <h3>🌱 100% Alami</h3>
+            <span class="feature-icon">🫚</span>
+            <h3>100% Alami</h3>
             <p>Dibuat dari rempah asli (Jahe, Sereh, Kunyit) tanpa pengawet.</p>
         </div>
         <div class="feature-box">
-            <h3>⚡ Fresh Brew</h3>
+            <span class="feature-icon">🌿</span>
+            <h3>Fresh Brew</h3>
             <p>Dibuat segar setiap hari untuk menjaga kualitas nutrisi.</p>
         </div>
         <div class="feature-box">
-            <h3>🛡️ Imun Booster</h3>
+            <span class="feature-icon">🍋</span>
+            <h3>Imun Booster</h3>
             <p>Kaya antioksidan dan vitamin C untuk daya tahan tubuh.</p>
         </div>
     </section>
@@ -331,18 +379,18 @@
     <footer id="contact" class="footer-section">
         <div class="footer-col">
             <h3>Lokasi Kami</h3>
-            <p style="margin-bottom: 10px;">Jl. Segar Selalu No. 123, Kota Coding.</p>
+            <p style="margin-bottom: 10px; color: #ccc;">Jl. Segar Selalu No. 123, Kota Coding.</p>
             <div class="map-container">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.5168275555225!2d100.2931504!3d-0.7043723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4dd00188a267d%3A0x1b3be9d88cf3860d!2sdrinktoxyaww!5e0!3m2!1sid!2sid!4v1765390572060!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.5168275555225!2d100.2931504!3d-0.7043723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4dd00188a267d%3A0x1b3be9d88cf3860d!2sdrinktoxyaww!5e0!3m2!1sid!2sid!4v1765390572060!5m2!1sid!2sid" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
         </div>
 
         <div class="footer-col">
             <h3>Hubungi & Ikuti</h3>
-            <p style="margin-bottom: 20px;">Dapatkan promo & info kesehatan terbaru!</p>
+            <p style="margin-bottom: 20px; color: #ccc;">Dapatkan promo & info kesehatan terbaru!</p>
             
             <div class="social-links">
                 <a href="https://www.tiktok.com/@drintoxyaww?is_from_webapp=1&sender_device=pc" class="tiktok" target="_blank" aria-label="TikTok">
@@ -358,21 +406,20 @@
                 <a href="https://instagram.com/drinktox.yaww" class="ig" target="_blank" aria-label="Instagram">
                     <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                 </a>
+
                 <a href="https://youtube.com/@rimpangalami" class="yt" target="_blank" aria-label="YouTube">
-    <svg viewBox="0 0 24 24">
-        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-    </svg>
-</a>
+                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
             </div>
             
             <br>
             <h3>Jam Operasional</h3>
-            <p>Senin - Minggu: 10.00 - 22.00 WIB</p>
+            <p>Senin - Minggu: 09.00 - 22.00 WIB</p>
         </div>
 
         <div class="nib-info">
             <p>©2025 Drinktoxyaww. All Rights Reserved.</p>
-            <p><strong>NIB: (0812250091365)</strong> (Terdaftar Resmi)</p>
+            <p><strong>NIB: 0812250091365</strong> (Terdaftar Resmi)</p>
         </div>
     </footer>
 
