@@ -38,12 +38,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background: rgba(253, 246, 227, 0.9); 
+            padding: 15px 50px; /* Sedikit dikurangi padding atas bawah agar tidak terlalu tebal */
+            background: rgba(253, 246, 227, 0.95); 
             backdrop-filter: blur(15px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            box-shadow: 0 2px 10px rgba(92, 75, 62, 0.05);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 15px rgba(92, 75, 62, 0.05);
         }
 
         .logo {
@@ -54,7 +54,17 @@
             letter-spacing: 2px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px; /* Jarak antara logo bulat dan teks */
+        }
+
+        /* --- CSS BARU UNTUK LOGO BULAT --- */
+        .nav-logo-img {
+            width: 50px; /* Ukuran logo */
+            height: 50px;
+            border-radius: 50%; /* Membuat jadi bulat */
+            object-fit: cover;
+            border: 2px solid var(--secondary); /* Border hijau */
+            background-color: var(--bg-body); /* Background cadangan jika gambar transparan */
         }
 
         .nav-links a {
@@ -75,6 +85,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            /* Pastikan file jamu.jpeg ada */
             background: linear-gradient(rgba(253, 246, 227, 0.6), rgba(245, 235, 208, 0.7)), url('jamu.jpeg');
             background-size: cover;
             background-position: center;
@@ -282,7 +293,7 @@
 
         .btn-buy:hover { background: var(--secondary); color: #fff; border-color: var(--secondary); }
 
-        /* --- 7. MITRA SECTION (NEW) --- */
+        /* --- 7. MITRA SECTION --- */
         .partners {
             padding: 50px;
             background: var(--bg-section);
@@ -365,7 +376,10 @@
 <body>
 
     <nav>
-        <div class="logo">🌿 Drinktoxyaww</div>
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo Drinktoxyaww" class="nav-logo-img"> 
+            Drinktoxyaww
+        </div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#featured">Why Us</a>
@@ -378,8 +392,6 @@
         <div class="hero-content">
             <h1>Drinktoxyaww</h1>
             <p class="motto">"Kesegaran alami dalam setiap tegukan"</p>
-
-
             <p style="margin-bottom: 30px; color: var(--text-main); font-weight: 600;">
                 Minuman rimpang kekinian. Sehat, Segar, dan Alami
             </p>
@@ -430,7 +442,7 @@
     </section>
 
     <section id="products" class="products-section">
-        <h2 class="section-title">Rak <span>Menu Sehat</span></h2>
+        <h2 class="section-title">Produk <span>Menu Sehat</span></h2>
         
         <div class="product-grid">
             
@@ -448,7 +460,7 @@
 
             <div class="product-card">
                 <div class="product-img-container">
-                    <img src="DRINKTOX SUGAR FREE FIT.jpg" alt="Drinktox Sugar Free Fit">
+                     <img src="DRINKTOX SUGAR FREE FIT.jpg" alt="Drinktox Sugar Free Fit">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Sugar Free Fit</h3>
@@ -460,7 +472,7 @@
 
             <div class="product-card">
                 <div class="product-img-container">
-                    <img src="DRINKTOX CITRUS FRESH.jpg" alt="Drinktox Citrus Fresh">
+                     <img src="DRINKTOX CITRUS FRESH.jpg" alt="Drinktox Citrus Fresh">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Citrus Fresh</h3>
@@ -474,7 +486,7 @@
     </section>
 
     <section class="partners">
-        <h2 class="section-title" style="margin-bottom: 20px; font-size: 1.8rem;">Mitra <span>Kerja Sama</span></h2>
+        <h2 class="section-title" style="margin-bottom: 20px; font-size: 1.8rem;">Mitra <span>Partner</span></h2>
         <div class="partner-box">
             <h3 style="font-size: 2.5rem; font-weight: 900; color: #FF0000; letter-spacing: 2px; margin: 0; line-height: 1;">
                 J&T <span style="font-size: 1.5rem; color: #333; font-weight: 700;">Express</span>
@@ -517,7 +529,7 @@
             
             <br>
             <h3>Jam Operasional</h3>
-            <p>Senin - Minggu: 09.00 - 22.00 WIB</p>
+            <p>Senin - Jumat: 08.00 - 18.00 WIB</p>
         </div>
 
         <div class="nib-info">
